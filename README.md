@@ -1,6 +1,7 @@
 On-demand-marketplace-analytics
 SQL and Tableau analysis optimising marketplace fulfilment and operational bottleneck detection.
-E-Commerce Shipping & Warehouse Bottleneck Analysis
+E-Commerce Shipping & Warehouse Bottleneck Analysis: 
+[View Live Interactive Tableau Dashboard](https://public.tableau.com/views/E-CommerceShippingWarehouseBottleneckAnalysis_/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 Project Overview
 This project performs an in-depth SQL analysis on a public Kaggle e-commerce shipping dataset to diagnose a major operational challenge: Why are 59.67% of all customer orders arriving late?
