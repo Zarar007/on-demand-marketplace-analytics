@@ -1,2 +1,40 @@
-# on-demand-marketplace-analytics
+On-demand-marketplace-analytics
 SQL and Tableau analysis optimising marketplace fulfilment and operational bottleneck detection.
+E-Commerce Shipping & Warehouse Bottleneck Analysis
+
+Project Overview
+This project performs an in-depth SQL analysis on a public Kaggle e-commerce shipping dataset to diagnose a major operational challenge: Why are 59.67% of all customer orders arriving late?
+
+By querying the dataset, I investigated whether shipping methods, warehouse blocks, customer service escalations, or product importance tiers were driving these delays. 
+
+Tech Stack & Skills
+Database Engine: SQLite
+SQL Concepts: Conditional Aggregation (`CASE WHEN`), Data Filtering (`WHERE`, `IN`), Aggregations (`COUNT`, `SUM`), Grouping (`GROUP BY`), Data Cleaning.
+
+Key Insights Uncovered
+1. The Priority Paradox (VIP Packages Delayed the Most!)
+We expected high-priority items to be fast-tracked through the warehouse. Instead, high-importance shipments suffer from the highest delay rate of all.
+High Importance: 948 orders | 616 delayed | 64.98% delay rate
+Low Importance: 5,297 orders | 3,140 delayed | 59.28% delay rate
+Medium Importance: 4,754 orders | 2,807 delayed | 59.05% delay rate
+
+2. The Carrier Myth (It's Not a Shipping Problem)
+Delays are almost perfectly uniform (~59% to 60%) across all shipping methods:
+Flight: 60.16% delay rate
+Ship: 59.76% delay rate
+Road: 58.81% delay rate  
+Conclusion: Since the transport mode doesn't change the delay rate, the bottleneck is happening inside the warehouse before packages ever leave the door.
+
+3. The "Squeaky Wheel" Customer Service Phenomenon
+Customers who only called customer care 2 times experienced a 65.20% delay rate.
+Customers who called 6 to 7 times experienced a lower 51.63% delay rate.
+Conclusion: The operations team is prioritizing "loud" customers who escalate issues, which pushes quiet, standard orders further back in the queue.
+
+Data-Driven Recommendations for the Retailer
+
+1. Establish a VIP Fast-Track Queue: Create a strict warehouse SLA (Service Level Agreement) prioritizing "High Importance" products so they are packed and shipped within 12 hours.
+2. Transition to FIFO (First-In, First-Out): Standardize warehouse order processing to prevent escalated orders from cutting in front of older, quieter orders.
+3. Re-evaluate Automatic Discounts: Currently, over 99% of orders receive a discount of >10% while still arriving late. The company should transition to offering post-delay apologies/discounts rather than preemptively eating into profit margins.
+
+Project Files
+`shipping_analysis.sql` - Contains the full set of SQL queries used to extract these insights.
